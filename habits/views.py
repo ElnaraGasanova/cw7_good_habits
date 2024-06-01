@@ -1,5 +1,5 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from habits.models import Habit
 from habits.serializers import HabitSerializer
 from users.permissions import IsOwner
