@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'drf_yasg',
+    'django_celery_beat',
+    'corsheaders',
 
     'users',
     'habits',
@@ -44,6 +46,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -131,8 +135,8 @@ REST_FRAMEWORK = {
     ),
 }
 
-###Первый способ авторизации:
-#закрываем доступ для НЕ авторизованных пользователей.
+### Первый способ авторизации:
+# закрываем доступ для НЕ авторизованных пользователей.
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': (
 #         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -142,8 +146,8 @@ REST_FRAMEWORK = {
 #     ]
 # }
 
-###Второй способ авторизации:
-#Доступ открыт для ВСЕХ!
+### Второй способ авторизации:
+# Доступ открыт для ВСЕХ!
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -153,8 +157,58 @@ REST_FRAMEWORK = {
     ]
 }
 
-#срок действия Токенов
+# срок действия Токенов
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=180),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7)
 }
+
+CELERY_TIMEZONE = TIME_ZONE
+
+# Флаг отслеживания выполнения задач
+CELERY_TASK_TRACK_STARTED = True
+
+# Лимит времени выполнения задачи
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+# сюда складываются задачи очереди
+# URL-адрес брокера сообщений
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
+
+# URL-адрес брокера результатов, также Redis
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
+
+#CORS_ALLOWED_ORIGINS = [*ALLOWED_HOSTS]     # Замените на адрес вашего фронтенд-сервера
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com", #  Замените на адрес вашего фронтенд-сервера
+# и добавьте адрес бэкенд-сервера
+]
+
+#CORS_ALLOW_ALL_ORIGINS = False
+
+# Корректировки CORS от Наставника Олега Маслова.
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+
+    'http://localhost:8000',
+
+]
+
+CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
+CORS_ALLOWED_ORIGINS = CORS_ORIGIN_WHITELIST
+
+# CELERY_BEAT_SCHEDULE = {
+#     'deactivate_user': {
+#         'task': 'users.tasks.user_blocking',
+#         'schedule': timedelta(minutes=1),
+#     },
+# }
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')      #указываем свою yandex почту
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')        #указываем пароль для ПРИЛОЖЕНИЯ!!! а НЕ почты!!!
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
