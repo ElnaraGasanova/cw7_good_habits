@@ -178,6 +178,15 @@ CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
 # URL-адрес брокера результатов, также Redis
 CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
 
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+CELERY_BEAT_SCHEDULE = {
+    'send_tg_habits_reminder': {      # называем как хотим
+        'task': 'habits.tasks.send_tg_habits_reminder',       # название и расположение нашей задачи
+        'schedule': timedelta(seconds=10),        # периодичность выполнения задачи - кажд.10 секунд
+    },
+}
+
 #CORS_ALLOWED_ORIGINS = [*ALLOWED_HOSTS]     # Замените на адрес вашего фронтенд-сервера
 
 CSRF_TRUSTED_ORIGINS = [
@@ -199,12 +208,7 @@ CORS_ORIGIN_WHITELIST = [
 CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 CORS_ALLOWED_ORIGINS = CORS_ORIGIN_WHITELIST
 
-# CELERY_BEAT_SCHEDULE = {
-#     'deactivate_user': {
-#         'task': 'users.tasks.user_blocking',
-#         'schedule': timedelta(minutes=1),
-#     },
-# }
+
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
@@ -212,3 +216,10 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')      #указываем свою
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')        #указываем пароль для ПРИЛОЖЕНИЯ!!! а НЕ почты!!!
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+TELEGRAM_URL = 'https://api.telegram.org/bot'
+TELEGRAM_USER_ID = os.getenv('TELEGRAM_USER_ID')
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
