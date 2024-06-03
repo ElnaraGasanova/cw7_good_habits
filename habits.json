@@ -104,6 +104,149 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2024-06-02T23:13:03.169Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "0 4 * * * (m/h/dM/MY/d) UTC",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2024-06-02T23:14:28.456Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "3",
+      "object_repr": "'reading': каждые 10 секунды",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Task (registered)\", \"Start Datetime\", \"One-off Task\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2024-06-03T08:23:50.288Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "celery.backend_cleanup: каждые 10 секунды",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Task (registered)\", \"Interval Schedule\", \"Crontab Schedule\", \"Start Datetime\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2024-06-03T08:50:58.589Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "5",
+      "object_repr": "reading: каждые 10 секунды",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2024-06-03T08:56:26.654Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "5",
+      "object_repr": "reading: каждые 10 секунды",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Start Datetime\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2024-06-03T09:17:08.583Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "admin@sky.pro",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2024-06-03T13:34:14.245Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "11",
+      "object_repr": "admin@sky.pro будет water в 13:34:12 в 101я проверка!",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0435\\u0441\\u0442\\u043e \\u0432\\u044b\\u043f\\u043e\\u043b\\u043d\\u0435\\u043d\\u0438\\u044f\", \"\\u041a\\u043e\\u0433\\u0434\\u0430 \\u0432\\u044b\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u044c\", \"\\u041f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u043d\\u043e\\u0441\\u0442\\u044c \\u0432\\u044b\\u043f\\u043e\\u043b\\u043d\\u0435\\u043d\\u0438\\u044f\", \"\\u041f\\u0443\\u0431\\u043b\\u0438\\u0447\\u043d\\u0430\\u044f \\u043f\\u0440\\u0438\\u0432\\u044b\\u0447\\u043a\\u0430\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2024-06-03T13:34:53.036Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "celery.backend_cleanup: 0 4 * * * (m/h/dM/MY/d) UTC",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Enabled\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2024-06-03T13:35:10.131Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "send_tg_habits_reminder: каждые 10 секунды",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Enabled\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2024-06-03T13:35:30.060Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "5",
+      "object_repr": "reading: каждые 10 секунды",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Task (registered)\", \"Start Datetime\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2024-06-03T13:36:27.908Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "12",
+      "object_repr": "admin@sky.pro будет cycling в 13:38:06 в явпвиари",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -684,6 +827,14 @@
     }
   },
   {
+    "model": "sessions.session",
+    "pk": "h6uehk5o5zfdsb76w4fq0awhyiaen07t",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSE8OgVduu83EGYYpGogKe3K-O_apAvd3nPOfYkQt7WErfMS5iQuQovT74aRHlx3kO6x3pqkVtdlRrkr8qBdTi3x83q4fwcl9vKtjc0YTfaJyWl0cE6AMKIi0DkbQ4NjT85rUD4bBlDWedbZjhZgwKTE-wPw_jen:1sE3Lu:P5PDZlU6P4WmWtiFQQMlD4_866Jq_mRien-kC-9KSXM",
+      "expire_date": "2024-06-17T08:47:38.854Z"
+    }
+  },
+  {
     "model": "django_celery_beat.intervalschedule",
     "pk": 1,
     "fields": {
@@ -715,7 +866,7 @@
   },
   {
     "model": "django_celery_beat.crontabschedule",
-    "pk": 1,
+    "pk": 2,
     "fields": {
       "minute": "0",
       "hour": "4",
@@ -729,35 +880,7 @@
     "model": "django_celery_beat.periodictasks",
     "pk": 1,
     "fields": {
-      "last_update": "2024-06-02T21:20:31.488Z"
-    }
-  },
-  {
-    "model": "django_celery_beat.periodictask",
-    "pk": 1,
-    "fields": {
-      "name": "celery.backend_cleanup",
-      "task": "celery.backend_cleanup",
-      "interval": null,
-      "crontab": 1,
-      "solar": null,
-      "clocked": null,
-      "args": "[]",
-      "kwargs": "{}",
-      "queue": null,
-      "exchange": null,
-      "routing_key": null,
-      "headers": "{}",
-      "priority": null,
-      "expires": null,
-      "expire_seconds": 43200,
-      "one_off": false,
-      "start_time": null,
-      "enabled": true,
-      "last_run_at": null,
-      "total_run_count": 0,
-      "date_changed": "2024-06-02T21:16:25.404Z",
-      "description": ""
+      "last_update": "2024-06-03T13:35:30.058Z"
     }
   },
   {
@@ -781,10 +904,10 @@
       "expire_seconds": null,
       "one_off": false,
       "start_time": null,
-      "enabled": true,
-      "last_run_at": "2024-06-02T22:46:43.062Z",
-      "total_run_count": 540,
-      "date_changed": "2024-06-02T22:46:48.135Z",
+      "enabled": false,
+      "last_run_at": null,
+      "total_run_count": 1182,
+      "date_changed": "2024-06-03T13:35:11.179Z",
       "description": ""
     }
   },
@@ -807,13 +930,69 @@
       "priority": null,
       "expires": null,
       "expire_seconds": null,
-      "one_off": true,
-      "start_time": "2024-06-02T21:18:32Z",
+      "one_off": false,
+      "start_time": "2024-06-02T23:13:56Z",
       "enabled": false,
       "last_run_at": null,
       "total_run_count": 0,
-      "date_changed": "2024-06-02T21:20:11.312Z",
+      "date_changed": "2024-06-02T23:14:28.454Z",
       "description": "Пора узнать что-то новое и интересное!"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 4,
+    "fields": {
+      "name": "celery.backend_cleanup",
+      "task": "celery.backend_cleanup",
+      "interval": null,
+      "crontab": 2,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": 43200,
+      "one_off": false,
+      "start_time": "2024-06-03T08:23:30Z",
+      "enabled": false,
+      "last_run_at": null,
+      "total_run_count": 178,
+      "date_changed": "2024-06-03T13:34:53.034Z",
+      "description": ""
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 5,
+    "fields": {
+      "name": "reading",
+      "task": "habits.tasks.send_tg_habits_reminder",
+      "interval": 2,
+      "crontab": null,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": "2024-06-03T13:35:27Z",
+      "enabled": true,
+      "last_run_at": "2024-06-03T13:40:57.293Z",
+      "total_run_count": 390,
+      "date_changed": "2024-06-03T13:41:04.827Z",
+      "description": ""
     }
   },
   {
@@ -821,7 +1000,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$720000$jZucPJ7zJa6Xh36PnqdRpn$scgxZUi/06kn5Z6zOjxMxkGW/PlmPBhr0JcKI9xPwmg=",
-      "last_login": "2024-06-02T21:11:54Z",
+      "last_login": "2024-06-03T08:47:38Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "Adminov",
@@ -928,6 +1107,102 @@
       "related_habit": null,
       "periodicity": "daily",
       "award": null,
+      "duration": null,
+      "is_public": false
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 7,
+    "fields": {
+      "owner": 1,
+      "location": "TG BOT222",
+      "time": "19:00:00",
+      "action": "fitness",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "daily",
+      "award": null,
+      "duration": null,
+      "is_public": false
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 8,
+    "fields": {
+      "owner": 1,
+      "location": "TG BOT1113",
+      "time": "22:00:00",
+      "action": "fitness",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "daily",
+      "award": null,
+      "duration": null,
+      "is_public": false
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 9,
+    "fields": {
+      "owner": 1,
+      "location": "TG BOT1113",
+      "time": "22:00:00",
+      "action": "fitness",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "daily",
+      "award": null,
+      "duration": null,
+      "is_public": false
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 10,
+    "fields": {
+      "owner": 1,
+      "location": "TG BOT1113",
+      "time": "08:18:00",
+      "action": "fitness",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "daily",
+      "award": null,
+      "duration": null,
+      "is_public": false
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 11,
+    "fields": {
+      "owner": 1,
+      "location": "101я проверка!",
+      "time": "13:34:12",
+      "action": "water",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "1",
+      "award": "",
+      "duration": null,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 12,
+    "fields": {
+      "owner": 1,
+      "location": "явпвиари",
+      "time": "13:38:06",
+      "action": "cycling",
+      "is_nice": false,
+      "related_habit": null,
+      "periodicity": "1",
+      "award": "варваор",
       "duration": null,
       "is_public": false
     }
