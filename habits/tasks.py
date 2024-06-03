@@ -19,12 +19,12 @@ def send_tg_habits_reminder():
     today = timezone.now()       # .today().date отобразится в формате даты
     habits = Habit.objects.all()     # фильтруем привычки
     message = f'Привет! Выполни {habits.action} {habits.time}, место - {habits.location}'
-    #telegram_id_list = []     # выводим список привычек
+    # telegram_id_list = []     # выводим список привычек
 
     for habit in habits:
         if habit.owner.telegram_id and habit.time >= today:
             send_tg_message(habit.owner.telegram_id, message)
-        #telegram_id_list.append(habit.owner.telegram_id)
+        # telegram_id_list.append(habit.owner.telegram_id)
         if habit.periodicity == '1':
             habit.time = today + timedelta(days=1)
         elif habit.periodicity == '2':

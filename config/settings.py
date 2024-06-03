@@ -135,7 +135,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-### Первый способ авторизации:
+# # # Первый способ авторизации:
 # закрываем доступ для НЕ авторизованных пользователей.
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 #     ]
 # }
 
-### Второй способ авторизации:
+# # # Второй способ авторизации:
 # Доступ открыт для ВСЕХ!
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -187,14 +187,14 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
-#CORS_ALLOWED_ORIGINS = [*ALLOWED_HOSTS]     # Замените на адрес вашего фронтенд-сервера
+# CORS_ALLOWED_ORIGINS = [*ALLOWED_HOSTS]     # Замените на адрес вашего фронтенд-сервера
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com", #  Замените на адрес вашего фронтенд-сервера
-# и добавьте адрес бэкенд-сервера
+    "https://read-and-write.example.com",   # Замените на адрес вашего фронтенд-сервера
+                                            # и добавьте адрес бэкенд-сервера
 ]
 
-#CORS_ALLOW_ALL_ORIGINS = False
+# CORS_ALLOW_ALL_ORIGINS = False
 
 # Корректировки CORS от Наставника Олега Маслова.
 CORS_ORIGIN_ALLOW_ALL = True
@@ -208,12 +208,10 @@ CORS_ORIGIN_WHITELIST = [
 CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 CORS_ALLOWED_ORIGINS = CORS_ORIGIN_WHITELIST
 
-
-
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')      #указываем свою yandex почту
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')        #указываем пароль для ПРИЛОЖЕНИЯ!!! а НЕ почты!!!
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')      # указываем свою yandex почту
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')        # указываем пароль для ПРИЛОЖЕНИЯ!!! а НЕ почты!!!
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
