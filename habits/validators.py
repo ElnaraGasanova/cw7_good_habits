@@ -4,6 +4,7 @@ from rest_framework.serializers import ValidationError
 class RelatedHabitAwardValidator:
     '''Класс исключения одновременного выбора
     связанной привычки и указания вознаграждения.'''
+
     def __init__(self, field1, field2):
         self.field1 = field1
         self.field2 = field2
@@ -17,6 +18,7 @@ class RelatedHabitAwardValidator:
 
 class TimeValidator:
     '''Класс время выполнения.'''
+
     def __init__(self, field):
         self.field = field
 
@@ -29,6 +31,7 @@ class TimeValidator:
 class RelatedHabitIsNiceValidator:
     '''Класс связанные привычки
     с признаком приятной привычки.'''
+
     def __init__(self, field1, field2):
         self.field1 = field1
         self.field2 = field2
@@ -42,6 +45,7 @@ class RelatedHabitIsNiceValidator:
 
 class IsNiceValidator:
     '''Класс приятной привычки.'''
+
     def __init__(self, field1, field2, field3):
         self.field1 = field1
         self.field2 = field2
@@ -58,6 +62,7 @@ class IsNiceValidator:
 class PeriodicityValidator:
     '''Класс периодичности
     выполнения привычки.'''
+
     def __init__(self, field):
         self.field = field
 

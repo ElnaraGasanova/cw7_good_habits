@@ -18,13 +18,13 @@ class Habit(models.Model):
     ]
 
     PERIOD_CHOICES = [
-        ('1', 'Ежедневно'),
-        ('2', 'Каждые 2 дня'),
-        ('3', 'Каждые 3 дня'),
-        ('4', 'Каждые 4 дня'),
-        ('5', 'Каждые 5 дней'),
-        ('6', 'Каждые 6 дней'),
-        ('weekly', 'Еженедельно'),
+        (1, 'Ежедневно'),
+        (2, 'Каждые 2 дня'),
+        (3, 'Каждые 3 дня'),
+        (4, 'Каждые 4 дня'),
+        (5, 'Каждые 5 дней'),
+        (6, 'Каждые 6 дней'),
+        (7, 'Еженедельно'),
     ]
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Создатель привычки',
@@ -38,8 +38,8 @@ class Habit(models.Model):
     is_nice = models.BooleanField(default=False, verbose_name='Приятная привычка')
     related_habit = models.ForeignKey('self', on_delete=models.SET_NULL, verbose_name='Связанная привычка',
                                       related_name='good_habit', **NULLABLE)
-    periodicity = models.CharField(max_length=50, verbose_name='Периодичность выполнения', choices=PERIOD_CHOICES,
-                                   default='daily', help_text='Укажите периодичность выполнения')
+    periodicity = models.IntegerField(verbose_name='Периодичность выполнения в днях', choices=PERIOD_CHOICES,
+                                      default=1, help_text='Укажите периодичность выполнения')
     award = models.TextField(verbose_name='Вознаграждение', help_text='Укажите вознаграждение', **NULLABLE)
     duration = models.DurationField(verbose_name='Время на выполнение', help_text='Укажите длительность выполнения',
                                     **NULLABLE)

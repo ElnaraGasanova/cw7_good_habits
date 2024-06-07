@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -183,18 +183,10 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BEAT_SCHEDULE = {
     'send_tg_habits_reminder': {      # называем как хотим
         'task': 'habits.tasks.send_tg_habits_reminder',       # название и расположение нашей задачи
-        'schedule': timedelta(seconds=10),        # периодичность выполнения задачи - кажд.10 секунд
+        'schedule': timedelta(seconds=100),        # периодичность выполнения задачи - кажд.10 минут
     },
 }
 
-# CORS_ALLOWED_ORIGINS = [*ALLOWED_HOSTS]     # Замените на адрес вашего фронтенд-сервера
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com",   # Замените на адрес вашего фронтенд-сервера
-                                            # и добавьте адрес бэкенд-сервера
-]
-
-# CORS_ALLOW_ALL_ORIGINS = False
 
 # Корректировки CORS от Наставника Олега Маслова.
 CORS_ORIGIN_ALLOW_ALL = True
@@ -205,8 +197,9 @@ CORS_ORIGIN_WHITELIST = [
 
 ]
 
-CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 CORS_ALLOWED_ORIGINS = CORS_ORIGIN_WHITELIST
+
+CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465

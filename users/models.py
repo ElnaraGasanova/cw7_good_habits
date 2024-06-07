@@ -6,6 +6,7 @@ NULLABLE = {'null': True, 'blank': True}
 
 class User(AbstractUser):
     '''Класс Пользователя.'''
+
     username = None
     email = models.EmailField(max_length=50, unique=True, verbose_name='Email', help_text='Укажите почту')
     telegram_id = models.CharField(max_length=50, verbose_name='Телеграм', help_text='Укажите id Телеграм',

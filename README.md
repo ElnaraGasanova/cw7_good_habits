@@ -88,8 +88,8 @@ redis-cli ping
 ```
 * В двух других новых окнах терминале PyCharm запускаем celery командами:
 ```
-celery -A django_drf worker —loglevel=info
-celery -A django_drf beat —loglevel=info
+celery -A config worker --loglevel=info
+celery -A config beat --loglevel=info
 ```
 * и перейти по ссылке для дальнейшей работы
 ```

@@ -1,5 +1,5 @@
 import requests
-from config import settings
+from django.conf import settings
 
 
 def send_tg_message(telegram_id, message):

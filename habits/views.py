@@ -7,6 +7,7 @@ from users.permissions import IsOwner
 
 class HabitCreateAPIView(CreateAPIView):
     '''Контроллеры на основе дженерик (создание Привычки).'''
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = (IsAuthenticated,)
@@ -19,6 +20,7 @@ class HabitCreateAPIView(CreateAPIView):
 
 class HabitDetailAPIView(RetrieveAPIView):
     '''Контроллеры на основе дженерик (просмотр Привычки).'''
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = (IsAuthenticated, IsOwner,)
@@ -26,6 +28,7 @@ class HabitDetailAPIView(RetrieveAPIView):
 
 class HabitListAPIView(ListAPIView):
     '''Контроллеры на основе дженерик (просмотр списка Привычек).'''
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = (IsAuthenticated, IsOwner,)
@@ -33,6 +36,7 @@ class HabitListAPIView(ListAPIView):
 
 class HabitUpdateAPIView(UpdateAPIView):
     '''Контроллеры на основе дженерик (редактирование Привычки).'''
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = (IsOwner,)
@@ -40,12 +44,14 @@ class HabitUpdateAPIView(UpdateAPIView):
 
 class HabitDestroyAPIView(DestroyAPIView):
     '''Контроллеры на основе дженерик (удаление Привычки).'''
+
     queryset = Habit.objects.all()
     permission_classes = (IsOwner,)
 
 
 class PublicHabitListApiView(ListAPIView):
     '''Контроллеры на основе дженерик (просмотр списка Публичных Привычек).'''
+
     queryset = Habit.objects.filter(is_public=True)
     serializer_class = HabitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
