@@ -183,7 +183,7 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BEAT_SCHEDULE = {
     'send_tg_habits_reminder': {      # называем как хотим
         'task': 'habits.tasks.send_tg_habits_reminder',       # название и расположение нашей задачи
-        'schedule': timedelta(seconds=100),        # периодичность выполнения задачи - кажд.10 минут
+        'schedule': timedelta(minutes=10),        # периодичность выполнения задачи - кажд.10 минут
     },
 }
 

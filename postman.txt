@@ -1,0 +1,53 @@
+1. Войти под существующим пользователем
+POST запрос: http://localhost:8000/users/login/
+{
+    "password":"QWErty111",
+    "email":"admin@sky.pro"
+}
+
+2. Создать нового пользователя
+POST запрос: http://localhost:8000/users/register/
+{
+    "password":"QWErty111",
+    "email":"regtest@sky.pro"
+}
+
+3. Список пользователей
+GET запрос: http://localhost:8000/users/users/
+
+4. Редактировать пользователя
+PATCH запрос: http://localhost:8000/users/update/2/
+{
+    "first_name": "Update",
+    "last_name": "Test"
+}
+
+5. Удалить пользователя
+DELETE запрос: http://localhost:8000/users/delete/3/
+Пользователь удален!
+
+6. Создать новую привычку
+POST запрос: http://localhost:8000/create/
+{
+    "action":"cycling",
+    "location":"Царицыно",
+    "time":"19:00:00"
+}
+
+7. Список привычек
+GET запрос: http://localhost:8000/
+
+8. Редактировать привычку
+PATCH запрос: http://localhost:8000/update/4/
+{
+    "action":"reading",
+    "location":"редактирование",
+    "time":"19:00:00"
+}
+
+9. Удалить привычку
+DELETE запрос: http://localhost:8000/delete/4/
+Привычка удалена!
+
+10. Вывести список публичных привычек
+GET запрос: http://localhost:8000/public/
