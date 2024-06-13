@@ -1,0 +1,124 @@
+1. Создаем новый проект. Активируем вирт.окружение: venv\Scripts\activate
+2. Стартуем проект: django-admin startproject config .
+3. Устанавливаем библиотеки: pip install django psycopg2 pillow
+4. Формируем файл с зависимостями: pip freeze > requirements.txt
+5. Сразу добавляем приложение users, чтобы дальше было легче работать без всяких лагов...
+python manage.py startapp users
+6. Создаем модель Пользователь в users.models.py
+class User(AbstractUser):
+    pass
+7. Вносим настройки в DATABASES. Далее, через терминал создаем БД:
+psql -U postgres
+create database habits;
+\q
+8. Добавляем наше приложение users в INSTALLED_APPS в settings.py
+9. В settings.py в самом конце прописываем AUTH_USER_MODEL = 'users.User'
+10. Применяем миграции:
+python manage.py makemigrations
+python manage.py migrate
+11. Проверяем, что проект запускается:
+python manage.py runserver
+12. Устанавливаем dotenv для шифрования секретных данных:
+pip install python-dotenv
+13. Шифруем данные в файл .env
+14. Привязываем проект к профилю в Гитхаб отправкой коммита.
+15. Прописываем урлы users, регистрируем их в урлах config
+16. Устанавливаем и регистрируем пакеты drf-yasg, djangorestframework, rest_framework_simplejwt и django-filter:
+pip install djangorestframework
+в настройках INSTALLED_APPS указываем 'rest_framework'
+
+pip install djangorestframework-simplejwt
+в настройках указываем INSTALLED_APPS 'rest_framework_simplejwt'
+
+pip install django-filter
+в настройках указываем INSTALLED_APPS 'django_filters',
+
+pip install drf-yasg
+в настройках указываем INSTALLED_APPS 'drf_yasg'
+
+17. Вносим настройки schema_view и урлов в config.urls.py
+В обсуждениях была рекомендация ввести команду для корректного запуска проекта:
+pip install setuptools
+18. Создаем файл csu
+19. Описываем Модель User, применяем миграции
+20. Описываем Сериализаторы users
+21. Описываем CRUD во вьюшке users
+22. Описываем урлы users, регистрируем их в урлах config
+23. Описываем админку users
+24. Создаем приложение habits командой:
+python manage.py startapp habits
+указываем его в INSTALLED_APPS (settings.py)
+25. Описываем Модель Habit, применяем миграции
+26. Описываем админку и права доступа habits
+27. Описываем CRUD во вьюшке habits
+28. Описываем урлы habits, регистрируем их в урлах config
+29. Описываем пагинации (кол-во эл-тов на странице) в habits
+30. Описываем валидацию и сериализаторы в habits
+31. Устанавливаем пакет celery командой:
+pip install celery
+Устанавливаем celery_beat командой:
+pip install django-celery-beat
+в настройках указываем INSTALLED_APPS 'django_celery_beat',
+32. Для корректной работы на винде, дополнительно необходимо установить eventlet командой:
+pip install eventlet
+33. Подключаем celery, для этого:
+в папке config создаем файл celery.ру и вносим туда настройки согласно документации.
+34. Вносим настройки согласно документации в config.__init__.py
+35. Вносим настройки Celery в settings.py
+36. Применяем миграции после установки celery!!!
+37. Устанавливаем redis (брокер очередей выполнения задач) командой:
+pip install redis
+38. redis запускается в окне WSL командой:
+service redis-server start
+redis-cli ping
+в ответ должно вернуться
+PONG (значит redis запущен!).
+Посмотреть более подробную информацию по запуску можно командой:
+redis-server
+39. ЗАПУСК CELERY, команды вводим в терминале в ТРЕХ РАЗНЫХ ОКНАХ!!!:
+1 - python manage.py runserver
+2 - celery -A config worker -l INFO
+(!!!для Windows ввести команду: celery -A config worker -l INFO -P eventlet)
+3 - celery -A config beat -l INFO
+40. Устанавливаем CORS (Cross-Origin Resource Sharing) и добавляем его в настройки в INSTALLED_APPS 'corsheaders'
+pip install django-cors-headers
+41. Добавляем его так же в настройки в блок в Middleware 'corsheaders.middleware.CorsMiddleware'
+42. Настраиваем CORS, в конце файла settings.py пишем CORS_ALLOWED_ORIGINS =...
+43. Настраиваем ТГ.
+Переходим в ТГ, там находим бота @getmyid_bot, нажимаем СТАРТ и он нам выдаст:
+Your user ID: 111111111 (например!)
+Current chat ID: 111111111 (например!)
+44. Чтобы получить BOT_TOKEN переходим в ТГ к @BotFather, нажимаем СТАРТ и он нам выдаст список,
+из списка выбрать /newbot - create a new bot:
+далее придумываем имя нашему боту и его наименование (у меня первый мой Бот tryhabits_bot),
+после подтверждения @BotFather выдаст Токен.
+45. Переносим эти данные в .env и в settings.py
+46. Для запуска задачи создаем в приложении habits файл tasks.py,
+создаем задачу, регистрируем ее во вьюшке habits
+47. Создаем в приложении habits файл services.py, в нем сервисную функцию отправки ТГ-сообщения пользователю
+48. Проверяем работоспособность отправки ТГ напоминаний
+49. Создаем файл tests.py в приложении habits, пишем тесты согласно заданию курсовой, команды:
+pip install pytest
+python manage.py test
+
+pip install coverage
+coverage run --source='.' manage.py test
+coverage run manage.py test
+coverage report
+50. Оформить документацию (файлы Dockerfile и docker-compose.yaml).
+Для начала скачиваем и устанавливаем Docker Desktop.
+Проверить работу docker и версию, запустить команду через wsl:
+docker --version
+Выполнить настройки в settings.py и .env (при ошибке контейнирования проекта удалить psycopg2 из requirements.txt
+и вместо него вписать psycopg2-binary==2.9.9!!! Так же устанавливаем и дописываем в requirements.txt др.модули!!!)
+Запуск контейнера с проектом производится командой:
+docker-compose up -d --build
+51. Устанавливаем и запускаем flake8 командой:
+pip install flake8
+flake8 . --max-line-length=120 --exclude=migrations
+или каждое приложение отдельно:
+flake8 habits --max-line-length=120 --exclude=migrations
+flake8 users --max-line-length=120 --exclude=migrations
+52. Выгрузить БД в json командой:
+python -Xutf8 manage.py dumpdata -o habits.json
+53. Пишем README.md (инструкция по развертыванию проекта).
